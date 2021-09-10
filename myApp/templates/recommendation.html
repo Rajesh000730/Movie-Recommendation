@@ -10,23 +10,59 @@
 <body>
     <div id="main-cont">
        <img id="back" src="../static/images/movies.jpg" alt="">
-        <div id="collection">   
+       <a id="top" href="#nav">
+           <button>Top</button>
+       </a>
+        <div id="collection">
+            <div id="nav">
+                <a href="/">
+                    <button>Home</button>
+                </a>    
+            </div>   
             <div id="title">
-                <h1>Spiderman</h1>
+                <h1>{{title}}</h1>
             </div>
             <div id="movie-overview">
                   
                    <div id="overview">
-                         <img id="movie-image" src="../static/images/spiderman.jpeg" alt="">
+                         <img id="movie-image" src="{{url}}" alt="">
                          <div id="details">
-                             <h2>title:spiderman</h2>
-                             <h2>hero:tom</h2>
-                             <h2>heroine:zendaya</h2>
-                             <h2>genre:action</h2>
+                                <p>title:{{title}}</p>
+                                <p>hero:{{hero}}</p>
+                                <p>heroine:{{heroine}}</p>
+                                <p>Release Date:{{date}}</p>
+                                <p>duration:{{duration}}</p>
+                                <p>genre:{{genre}}</p>
+                                <p>IMDB:{{imdb}}</p>
+                                <p>production:{{production}}</p>
+                            
                          </div>
                    </div> 
+
+            </div>
+            <div id="actors-cont">
+                {% for i in range(9) %}
+                    {% if(i==0 ) %}
+                    <img id="actors_{{i}}" src="{{herourl}}" class="actors" alt="">
+                    
+                    {% elif (i==1 ) %}
+                    <img id="actors_{{i}}" src="{{heroineurl}}" class="actors" alt="">
+                    
+                    {% else %}
+                    <img id="actors_{{i}}" src="{{herourl}}" class="actors" alt="">
+                    {% endif %}
+                {% endfor %}    
+
             </div>
         </div>
     </div>
-</body>
+</body> 
+  <script>
+     var pos = document.getElementById('actors-cont')
+     function click(){
+         console.log('hi')
+     }
+     pos.addEventListener('scroll', click);
+     
+  </script>
 </html>

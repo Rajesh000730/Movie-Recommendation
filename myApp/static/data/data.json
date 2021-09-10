@@ -1,0 +1,30 @@
+{
+    "casts":{
+        "spiderman":{
+            "title":"spiderman",
+            "hero":"tom",
+            "heroine":"zendaya",
+            "date":"09/07/2019",
+            "duration":"120 mins",
+            "genre":"action",
+            "imdb":"7.1",
+            "production":"marvel",
+            "url":"../static/images/spiderman.jpeg",
+            "herourl":"../static/images/tom.jpeg",
+            "heroineurl":"../static/images/zendaya.jpeg"
+        },
+        "marvel":{
+            "title":"marvel",
+            "hero":"steve",
+            "heroine":"scarlet",
+            "date":"08/10/2018",
+            "duration":"157 mins",
+            "genre":"horror",
+            "imdb":"6.1",
+            "production":"sony pictures",
+            "url":"../static/images/marvel.jpeg",
+            "herourl":"../static/images/steve.jpeg",
+            "heroineurl":"../static/images/scarlet.jpeg"
+        }
+    }
+}

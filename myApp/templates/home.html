@@ -12,7 +12,9 @@
     <div id="main-cont">
         <div class="input" >
             <form id="movie"class ="input">
-                <input id="movie_input" type="text" placeholder="Enter the movie name" required="true">
+                <input id="movie_input" type="text" placeholder="Enter the movie name" required="true"  oninvalid="this.setCustomValidity('Movie name is required')"
+
+                oninput="this.setCustomValidity('')">
                 <button  type="submit">Enter</button>
             </form>
         </div>
@@ -21,21 +23,42 @@
    
 </body>
 <script>
+     var x
+     
      $('#movie').on('submit',(e)=>{
-         e.preventDefault();
-         $.ajax({
+        e.preventDefault();
+        $.ajax({
+         type:"GET",
+         url:'../static/data/data.json',
+         dataType: 'json',
+         success:(data)=>{
+             x = data['casts'][$('#movie_input').val()]
+             console.log(x)
+             $.ajax({
              type:"POST",
              url:"/recommendation",
-             data:{'title':'raju',
-                    'hero':'tom',
-                     'heroine':'zendaya' },
-             success: ()=>{
+             data:x,
+             success: (res)=>{
+                 if(res=="fail"){
+                     window.alert('error occured')
+                 } 
+                 else{
                  window.location.replace('/movie')
+                }
+             },
+             error:()=>{
+                 window.alert('requested movie is not there')
              }
          })
+         }
+
+        })
+         
+         
         
         
      })
 </script>
+<script src="../static/js/home.js"></script>
     
 </html>
